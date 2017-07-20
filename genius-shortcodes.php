@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Shortcodes
-Plugin URI: http://artgeni.us/themes/pablo
+Plugin URI: http://artgeni.us/plugins/genius-shortcodes
 Description: Common bootstrap elements shortcodes for ArtGenius themes
 Author: ArtGenius
-Author URI: http://artgeni.us/
-Version: 1.0.0
+Author URI: http://artgeni.us/team/
+Version: 1.0.1
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: genius-shortcodes
@@ -30,8 +30,10 @@ define( 'GS_SENDMAIL_URI' , GS_PLUGIN_PATH . 'lib/extra/sendmail.php' );
 
 
 
-
-
+/*
+ * SendMail path function for the contact shortcode
+ *
+ */
 
 function sendmail_path()
 {
@@ -80,18 +82,33 @@ add_action(	'wp_enqueue_scripts', 'genius_shortcodes_scripts_and_styles');
 function genius_shortcodes_scripts_and_styles()
 {
 
-	// Combined JS
-	wp_register_script( 'genius-shortcodes', plugin_dir_url( __FILE__ ) . 'assets/js/pablo-tools.combined.min.js', array( 'jquery', 'jquery-form' ), '1.0' );
 
-	// Styles & Shortcodes CSS
-	wp_register_style( 'genius-shortcodes',  plugin_dir_url( __FILE__ ) . 'assets/css/pablo-tools.min.css', '1.0', 'all' );
+	// JS
+	// With Bootstrap
+	wp_register_script( 'g-shortcodes-full', plugin_dir_url( __FILE__ ) . 'assets/js/js.full.min.js', array( 'jquery', 'jquery-form' ), '1.0' );
+
+	// Without Bootstrap
+	wp_register_script( 'g-shortcodes-minimal', plugin_dir_url( __FILE__ ) . 'assets/js/js.full.min.js', array( 'jquery', 'jquery-form' ), '1.0' );
+
+
+	// CSS
+	// With Bootstrap
+	wp_register_style( 'g-shortcodes-full',  plugin_dir_url( __FILE__ ) . 'assets/css/style-full.css', '1.0', 'all' );
+
+	// Without Bootstrap
+	wp_register_style( 'g-shortcodes-minimal',  plugin_dir_url( __FILE__ ) . 'assets/css/style-minimal.css', '1.0', 'all' );
+
 
 
 	// If one of ArtGenius theme is not activated enqueue Bootstrap and CCC
 	if ( ! defined( 'LEO_FRAMEWORK' ) )
 	{
-		wp_enqueue_script( 'genius-shortcodes' );
-		wp_enqueue_style( 'genius-shortcodes' );
-	}
+		wp_enqueue_script( 'g-shortcodes-full' );
+		wp_enqueue_style( 'g-shortcodes-full' );
+	} else {
+		wp_enqueue_script( 'g-shortcodes-minimal' );
+		wp_enqueue_style( 'g-shortcodes-minimal' );
+	{
+
 
 }
