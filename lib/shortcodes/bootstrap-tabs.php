@@ -17,7 +17,7 @@
  *
  *
  * @package 	WordPress
- * @subpackage	Leonardo
+ * @subpackage	Genius Shortcodes
  * @since		1.0
  * @updated		11.07.2017
  */
