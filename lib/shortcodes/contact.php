@@ -44,7 +44,7 @@ function leo_contact_form_shortcode($atts, $content = null)
 
 <p id="badserver" class="errormsg alert alert-warning" style="display:none;"><a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>' . __('Auch... Something went wrong. Is the sum of the 2 numbers correct?<br>Please try again.','pablo-tools').'</p>
 
-<form id="quick-contact" method="post" class="form" action="'. PABLO_SENDMAIL_URI .'">
+<form id="quick-contact" method="post" class="form" action="'. GS_SENDMAIL_URI .'">
 
 <input type="hidden" name="sitename" value="'. get_bloginfo('name') .'" />
 
