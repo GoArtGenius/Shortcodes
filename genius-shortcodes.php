@@ -108,7 +108,7 @@ function genius_shortcodes_scripts_and_styles()
 	} else {
 		wp_enqueue_script( 'g-shortcodes-minimal' );
 		wp_enqueue_style( 'g-shortcodes-minimal' );
-	{
+	}
 
 
 }
