@@ -2,7 +2,7 @@
 /*
  * Space
  *
- * Usage: [space height='250']
+ * Usage: [space height="250"]
  *
  *
  * @package 	WordPress
