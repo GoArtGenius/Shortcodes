@@ -77,19 +77,17 @@ foreach ( glob( GS_SHORTCODES_DIR . '*.php') as $filename )
  *
  */
 
-add_action(	'wp_enqueue_scripts', 'genius_shortcodes_scripts_and_styles');
+add_action( 'wp_enqueue_scripts', 'genius_shortcodes_scripts_and_styles');
 
 function genius_shortcodes_scripts_and_styles()
 {
 
-
 	// JS
 	// With Bootstrap
-	wp_register_script( 'g-shortcodes-full', plugin_dir_url( __FILE__ ) . 'assets/js/js.full.min.js', array( 'jquery', 'jquery-form' ), '1.0' );
+	wp_register_script( 'g-shortcodes-full', plugin_dir_url( __FILE__ ) . 'assets/js/js.full.min.js', array( 'jquery', 'jquery-form' ), '1.0', true );
 
 	// Without Bootstrap
-	wp_register_script( 'g-shortcodes-minimal', plugin_dir_url( __FILE__ ) . 'assets/js/js.full.min.js', array( 'jquery', 'jquery-form' ), '1.0' );
-
+	wp_register_script( 'g-shortcodes-minimal', plugin_dir_url( __FILE__ ) . 'assets/js/js.minimal.min.js', array( 'jquery', 'jquery-form' ), '1.0', true );
 
 	// CSS
 	// With Bootstrap
@@ -97,7 +95,6 @@ function genius_shortcodes_scripts_and_styles()
 
 	// Without Bootstrap
 	wp_register_style( 'g-shortcodes-minimal',  plugin_dir_url( __FILE__ ) . 'assets/css/style-minimal.css', '1.0', 'all' );
-
 
 
 	// If one of ArtGenius theme is not activated enqueue Bootstrap and CCC
@@ -109,6 +106,5 @@ function genius_shortcodes_scripts_and_styles()
 		wp_enqueue_script( 'g-shortcodes-minimal' );
 		wp_enqueue_style( 'g-shortcodes-minimal' );
 	}
-
 
 }
